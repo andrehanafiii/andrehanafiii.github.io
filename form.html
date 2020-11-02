@@ -1,0 +1,55 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .label {float: left; width: 200px; } /* label */
+        .infobox {width: 150px; } /* kotak untuk mengisi elemen */
+        .error { color: red; padding-left: 10px; } /* memicu elemen eror untuk muncul*/
+        .result { color: blue; padding-left: 10px; }
+        .submit { margin-left: 200px; margin-top: 10px;} /* memunculkan tombol submit */
+    </style>
+</head>
+<body>
+<script>
+    $(document).ready(function() { //membuat fungsi tersedia setelah dokumen di-loading
+        $('.error').hide(); //menyembunyikan elemen error
+        $('.submit').click(function(event){ //muncul ketika ditekan
+        var count=$('select option:selected').val(); //mengembalikan nilai atribut
+        if(count==0) //sebuah kondisi jika tidak terdapat opsi yang dipilih
+        {
+            $('p.result').hide();
+            $('.error').show(); //menampilkan elemen yang disembunyikan atau dipilih
+        }
+        else
+        {
+            $('.error').hide();
+            $('p.result').show();
+            $('p.result').text('Anda memilih '+$('select option:selected').text()); //mengembalikan teks elemen yang dipilih
+        }
+    event.preventDefault(); //membatalkan event jika dapat dibatalkan
+    });
+}); 
+</script>
+
+<form>
+    <span class="label">Pilih Asal Departemen</span>
+    <select id="departemen" class="infobox">
+        <option value="0">Departemen</option>
+        <option value="S-1 Teknik Informatika">S-1 Teknik Informatika</option>
+        <option value="S-1 Sistem Informasi">S-1 Sistem Informasi</option>
+        <option value="S-1 Teknologi Informasi">S-1 Teknologi Informasi</option>
+        <option value="S-2 Teknik Informatika">S-2 Tenik Informatika</option>
+        <option value="S-2 Sistem Informasi">S-2 Sistem Informasi</option>
+        <option value="S-3 Ilmu Komputer">S-3 Ilmu Komputer</option>
+    </select>
+
+    
+<p class="error">Pilih salah satu!</p>
+<p class="result"></p>
+<input class="submit" type="submit" value="Submit">
+</form>
+     
+</body> 
+
+</html>
