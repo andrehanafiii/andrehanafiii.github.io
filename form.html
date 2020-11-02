@@ -12,13 +12,13 @@
 </head>
 <body>
 <script>
-    $(document).ready(function() { //membuat fungsi tersedia setelah dokumen di-loading
+    $(document).ready(function() { //membuat fungsi tersedia setelah elemen di-loading
         $('.error').hide(); //menyembunyikan elemen error
         $('.submit').click(function(event){ //muncul ketika ditekan
         var count=$('select option:selected').val(); //mengembalikan nilai atribut
         if(count==0) //sebuah kondisi jika tidak terdapat opsi yang dipilih
         {
-            $('p.result').hide();
+            $('p.result').hide(); //menyembunyikan elemen hasil
             $('.error').show(); //menampilkan elemen yang disembunyikan atau dipilih
         }
         else
